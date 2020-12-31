@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Device Upgrade</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        
+        
+         <style>
+           
+body {
+	background-color: #e4e4e4;
+}
+html,
+body {
+	width: 100%;
+        heigth: 100%
+}
+
+.zig-zag { border: none; width: 50%; margin: auto; margin-top: 5%; margin-bottom: 5%; height: 40px; background: linear-gradient(135deg, #eb595f 25%, transparent 25%) -20px 0, linear-gradient(225deg, #ECEDDC 25%, transparent 25%) -20px 0, linear-gradient(315deg, #ECEDDC 25%, transparent 25%), linear-gradient(45deg, #ECEDDC 25%, transparent 25%); background-size: 40px 40px; background-color: #EC173A;}
+.imagebg {
+	background-image: url("/static/images/avenue-2215317_1920.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-filter: blur(3px);
+  filter: blur(3px);
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.form-container {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	/*margin-bottom: 30px;*/
+	padding: 50px;
+	background-color: #fff;
+	position: relative;
+	    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+	position: absolute;
+	top: 44%;
+	left: 40%;
+        display:inline-block;
+        border-radius: 10px;
+
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.form-container .row {
+	margin-bottom: 0;
+}
+
+
+/* label color */
+   .input-field label {
+     color: #9c9c9c;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #9c9c9c;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #9c9c9c;
+     box-shadow: 0 1px 0 0 #9c9c9c;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #9c9c9c;
+     box-shadow: 0 1px 0 0 #9c9c9c;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #9c9c9c;
+     box-shadow: 0 1px 0 0 #9c9c9c;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #9c9c9c;
+   }
+   input:not([type]):focus:not([readonly]), 
+   input[type=text]:focus:not([readonly]), 
+   input[type=password]:focus:not([readonly]), 
+   input[type=email]:focus:not([readonly]), 
+   input[type=url]:focus:not([readonly]), 
+   input[type=time]:focus:not([readonly]), 
+   input[type=date]:focus:not([readonly]), 
+   input[type=date-time]:focus:not([readonly]), 
+   input[type=datetime-local]:focus:not([readonly]), 
+   input[type=tel]:focus:not([readonly]), 
+   input[type=number]:focus:not([readonly]), 
+   input[type=search]:focus:not([readonly]), 
+   textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #009ddc;
+    box-shadow: 0 1px 0 0 #009ddc;
+}
+input:not([type]):focus:not([readonly])+label, 
+input[type=text]:focus:not([readonly])+label, 
+input[type=password]:focus:not([readonly])+label, 
+input[type=email]:focus:not([readonly])+label, 
+input[type=url]:focus:not([readonly])+label, 
+input[type=time]:focus:not([readonly])+label, 
+input[type=date]:focus:not([readonly])+label, 
+input[type=datetime]:focus:not([readonly])+label, 
+input[type=datetime-local]:focus:not([readonly])+label, 
+input[type=tel]:focus:not([readonly])+label, 
+input[type=number]:focus:not([readonly])+label, 
+input[type=search]:focus:not([readonly])+label, 
+textarea.materialize-textarea:focus:not([readonly])+label {
+    color: #009ddc;
+}
+.form-container .btn {
+    background-color: #009ddc;
+
+}
+.submitbtn {
+	line-height: 48px;
+	display: block;
+	height: 48px;
+	width: 100%;
+}
+.form-container h3 {
+	font-size: 42px;
+    letter-spacing: 0.1em;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    top: -46px;
+}
+@media  all and (max-width: 640px) {
+	.form-container {
+		position: static;
+		-webkit-transform: translate(0, 0);
+		-ms-transform: translate(0, 0);
+		-o-transform: translate(0, 0);
+		transform: translate(0, 0);
+		width: 100%;
+		margin-top: 70px;
+		margin-bottom: 20px;
+	}
+	.form-container h3 {
+	    font-size: 24px;
+	    top: -26px;
+	}
+}
+
+          </style>
+
+
+          <script>
+          		
+			 function filterimage(){
+			$("#dldhardware").change(function() {
+			
+				var $dropdown = $(this);
+			
+                                var data={"Nexus9000 93180YC-EX": "nxos.9.2.1.bin,nxos.9.2.3.bin,nxos.9.3.1.bin,nxos.9.3.2.35.bin,nxos.9.3.2.bin",
+                                       "3850-24P-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin",
+                                       "3850-16XS-S": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin,cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin",
+                                       "3850-24S-E": "cat3k_caa-universalk9.SPA.03.06.06.E.152-2.E6.bin,cat3k_caa-universalk9.SPA.03.06.07.E.152-2.E7.bin,cat3k_caa-universalk9.SPA.03.06.07b.E.152-2.E7b.bin,cat3k_caa-universalk9.SPA.03.06.08.E.152-2.E8.bin, cat3k_caa-universalk9.SPA.03.06.09.E.152-2.E9.bin"}
+                                       
+				       
+					var key = $dropdown.val();
+					var vals = [];
+                                        
+										
+					switch(key) {
+						case 'Nexus9000 93180YC-EX':
+							vals = data["Nexus9000 93180YC-EX"].split(",");
+							break;
+						case '3850-24P-E':
+							vals = data["3850-24P-E"].split(",");
+							break;
+                                                case '3850-16XS-S':
+                                                        vals = data["3850-16XS-S"].split(",");
+							break;
+                                                case '3850-24S-E':
+                                                        vals = data["3850-24S-E"].split(",");
+							break;
+                                                case '3850-24XS-E':
+                                                        vals = data["3850-24XS-E"].split(",");
+							break;
+						case 'Select':
+							vals = ['Please choose from above'];
+					}
+					
+					var $images = $("#dldImage");
+					$images.empty();
+					$.each(vals, function(index, value) {
+						$images.append("<option>" + value + "</option>");
+					});
+			
+				});
+			
+}
+		
+
+       
+</script>
+    </head>
+
+<body>
+<div >
+  <h1 style="solid:1px; width:60%;border-bottom:1px solid #666;margin-left: auto;margin-right:auto;
+color:#eb595f;text-align:center;padding-top:20px;font-family: brandon-grotesque;letter-spacing: 0.08em;font-weight: lighter;">DEVICE UPGRADE</h1>
+  
+</div>
+
+<form action="/external/" method="post" class="container">
+
+<table class="form-container z-depth-5">
+<tr>
+ <td valign="top">
+  <label for="IP" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">IP Address *</label>
+ </td>
+   {% csrf_token %}
+<td valign="top">
+<input type="text" name="param1" required style="width: 100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:2px">
+</td>
+
+</tr>
+
+<tr>
+ <td valign="top">
+ <label for="lbluser" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Username *</label>
+ </td>
+ <td valign="top">
+ <input type="text" id="txtuser" name="param2" required  style="width: 100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:2px" >
+ </td>
+</tr>
+<tr>
+ <td valign="top">
+ <label for="lblpwd" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Password *</label>
+ </td>
+ <td valign="top">
+<input type="password" id="txtpwd" name="param3" required style="width: 100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:2px">
+{{data_external}}
+
+
+ </td>
+</tr>
+<tr>
+<td style="left:20%">
+
+</td>
+<td>
+<input type="submit" value="SUBMIT" id="btnsubmit" style="letter-spacing:0px;font-family:brandon-grotesque;background-color:#eb595f;color:white;border:none;padding:5px 10px;border-radius:10px;margin-top:5px;width:100%"/>
+</td>
+</tr>
+</form>
+<tr>
+<td>
+<label for="platform" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Platform & OS Version</label>
+</td>
+<td>
+ <select id="dldhardware" name="dldhardware" style="width:100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:5px" oninput="filterimage();">
+   <option value="Select" style="font-family: sans-serif;font-weight: lighter;font-size:14px" selected value="Select">Select</option>
+  <option value="Nexus9000 93180YC-EX" style="font-family: sans-serif;font-weight: lighter;font-size:14px">Nexus9000 93180YC-EX</option>
+  <option value="3850-24P-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24P-E</option>
+  <option value="3850-16XS-S" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-16XS-S</option>
+  <option value="3850-24S-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24S-E</option>
+  <option value="3850-24XS-E" style="font-family: sans-serif;font-weight: lighter;font-size:14px">3850-24XS-E</option>
+ </select>
+</td>
+
+
+
+</tr>
+<form action="/output/" method="post" class="container">
+<tr>
+<td>
+<label for="Imagedrp" style="font-family: brandon-grotesque;font-weight: lighter;font-size:14px">Images</label>
+</td>
+{% csrf_token %}
+<td>
+ <select id="dldImage" name="dldImage" style="width:100%;border-radius:10px;border:1px solid #a9a6a6;padding:2px;margin-top:5px" >
+  <option>Please choose from above</option>
+  </select>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td valign="top">
+<input type="submit" value="UPGRADE"  id="btnupgrade" onclick="myFunction({{data}})" style=" font-family: brandon-grotesque;background-color:#eb595f;color:white;border:none;padding:5px 10px;border-radius:10px;margin-top:5px;width:100%"/>
+</td>
+</tr>
+</form>
+</table>
+
+ 
+
+<div width="30%" style="float:right;right:20%;top:40%;">
+<label for="lbloutput"style="letter-spacing: 0.08em;text-align:center;margin-right:8%;font-family:brandon-grotesque;">OUTPUT</label>
+<textarea name="output"  rows="30" cols="50" style="wrap:true;text-align:left;color:green;background-color : #000;border-radius:10px;border:none;box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 20px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);white-space:normal;">{{data}}</textarea>
+</div>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+</body>
+</html>
